@@ -16,28 +16,48 @@
 
     <section class="main-content">
 
+	因为开发工作是在ubuntu下完成的,所以这里使用ubuntu来说明如何部署服务器.<br>
+
 	<h3>已经测试过的系统</h3>
-	ubuntu 14.04<br>
-	ubuntu 12.04
+	<ul>
+	<li>ubuntu 14.04</li>
+	<li>ubuntu 12.04</li>
+	</ul>
 
 
 	<h3>需要的组件</h3>
-	python 2.7 (服务器是用python写的 , 没测试过 python 3下是否正常)<br>
-	M2Crypto (md4加密)<br>
-	dnsmasq (提供DHCP服务，可选)<br>
-	screen (提供后台运行, 当然 nohup 或者其它的工具也可以 , 可选)
-
+	<ul>
+	<li>python 2.7 (开发环境是 python 2.7 , 没测试过 python 3下是否正常)</li>
+	<li>M2Crypto (md4加密)</li>
+	<li>dnsmasq (提供DHCP服务，可选)</li>
+	<li>screen (提供后台运行, 当然 nohup 或者其它的工具也可以 , 可选)</li>
+	</ul>
 
 	<h3>安装组件</h3>
-	<code>sudo apt-get install M2Crypto dnsmasq screen</code>
+	<ul><li><pre>sudo apt-get install python-m2crypto dnsmasq screen</pre></li></ul>
 
 	<h3>配置系统</h3>
-	修改内核 , 让操作系统支持转发<br>
-	配置NAT<br>
-	配置 dnsmasq <br>
-	重启 dnsmasq <br>
-	配置 服务器参数 <br>
+	<ul>
+	<li>修改内核,让操作系统支持转发</li>
+	修改 /etc/sysctrl.conf ,将ipv4的转发打开.<br>
 
+	<pre>net.ipv4.ip_forward=1</pre>
+
+	使用下面的指令,使配置生效<br>
+
+	<pre>sysctrl -p /etc/sysctrl.conf</pre>
+
+	<li>配置NAT</li>
+	使用下面的指令,为所有从eth0发出的数据,开启NAT模式.<br>
+
+	<pre>iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</pre>
+
+	<li>配置dnsmasq </li>
+	<li>重启dnsmasq </li>
+	<li>配置服务器参数 </li>
+	服务器的配置文件里面,大部分的参数都不需要修改.但是强烈建议修改加密数据的密钥.比如下面的样子.
+	<pre>key = "ifuhio8-euh8734763$^^&Y4KV" </pre>
+	</ul>
 	<h3>运行服务器</h3>
 
     <footer class="site-footer">
