@@ -15,7 +15,30 @@
     </section>
 
     <section class="main-content">
+	<h3>已经测试过的系统</h3>
+	ubuntu 14.04<br>
+	ubuntu 12.04
+
+
 	<h3>需要的组件</h3>
+	python 2.7 (服务器是用python写的 , 没测试过 python 3下是否正常)<br>
+	M2Crypto (md4加密)<br>
+	dnsmasq (提供DHCP服务，可选)<br>
+	screen (提供后台运行, 当然 nohup 或者其它的工具也可以 , 可选)
+
+
+	<h3>安装组件</h3>
+	sudo apt-get install M2Crypto dnsmasq screen
+
+	<h3>配置系统</h3>
+	修改内核 , 让操作系统支持转发<br>
+	配置NAT<br>
+	配置 dnsmasq <br>
+	重启 dnsmasq <br>
+	配置 服务器参数 <br>
+
+	<h3>运行服务器</h3>
+
 
   <footer class="site-footer">
   </footer>
