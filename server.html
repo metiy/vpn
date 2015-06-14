@@ -53,12 +53,29 @@
 	<pre>iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</pre>
 
 	<li>配置dnsmasq </li>
-	<li>重启dnsmasq </li>
+	如果需要配置DHCP功能,请安装dnsmasq.<br>
+	下面的示例中配置了<br>
+	IP地址池为 192.168.7.10 - 192.168.7.150 , 掩码为255.255.255.0 , 分配时间为1小时.<br>
+	网关配置为 192.168.7.1<br>
+	DNS配置为 8.8.8.8<br>
+<pre>
+dhcp-range=192.168.7.10,192.168.7.150,255.255.255.0,1h
+dhcp-option=option:router,192.168.7.1
+dhcp-option=option:dns-server,8.8.8.8
+</pre>
+	配置完dnsmasq后,应该重启,配置才能生效.<br>
+	<pre>sudo /etc/init.d/dnsmasq restart</pre>
+
 	<li>配置服务器参数 </li>
-	服务器的配置文件里面,大部分的参数都不需要修改.但是强烈建议修改加密数据的密钥.比如下面的样子.
+	服务器的配置文件里面,大部分的参数都不需要修改.<br>
+	但是强烈建议修改加密数据的密钥.比如改成下面的样子.
 	<pre>key = "ifuhio8-euh8734763$^^&Y4KV" </pre>
 	</ul>
 	<h3>运行服务器</h3>
+	服务需要管理员权限才能运行.
+	<pre>sudo ./vpn-server.py</pre>
+	如果希望服务在后台运行,请使用 nohup 或者 screen
+	<pre>sudo nohup ./vpn-server.py > /dev/null & </pre>
 
     <footer class="site-footer">
     </footer>
