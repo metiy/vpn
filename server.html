@@ -53,8 +53,11 @@
 	<pre>sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</pre>
 
 	<li>配置dnsmasq </li>
-	如果需要配置DHCP功能,请安装dnsmasq.<br>
-	下面的示例中配置了<br>
+	如果需要配置DHCP功能,请使用dnsmasq.<br>
+	安装后,需要配置一下才能使用.<br>
+	配置文件为 /etc/dnsmasq.conf.<br>
+	修改配置文件里面的参数.<br>
+	示例:<br>
 	IP地址池为 192.168.7.10 - 192.168.7.150 , 掩码为255.255.255.0 , 分配时间为1小时.<br>
 	网关配置为 192.168.7.1<br>
 	DNS配置为 8.8.8.8<br>
@@ -63,7 +66,7 @@ dhcp-range=192.168.7.10,192.168.7.150,255.255.255.0,1h
 dhcp-option=option:router,192.168.7.1
 dhcp-option=option:dns-server,8.8.8.8
 </pre>
-	配置完dnsmasq后,应该重启,配置才能生效.<br>
+	配置完后,应该重启dnsmasq,配置才能生效.<br>
 	<pre>sudo /etc/init.d/dnsmasq restart</pre>
 
 	<li>配置服务器参数 </li>
