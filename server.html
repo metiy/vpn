@@ -45,12 +45,12 @@
 
 	使用下面的指令,使配置生效<br>
 
-	<pre>sysctrl -p /etc/sysctrl.conf</pre>
+	<pre>sudo sysctrl -p /etc/sysctrl.conf</pre>
 
 	<li>配置NAT</li>
 	使用下面的指令,为所有从eth0发出的数据,开启NAT模式.<br>
 
-	<pre>iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</pre>
+	<pre>sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</pre>
 
 	<li>配置dnsmasq </li>
 	如果需要配置DHCP功能,请安装dnsmasq.<br>
