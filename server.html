@@ -51,6 +51,7 @@
 	使用下面的指令,为所有从eth0发出的数据,开启NAT模式.<br>
 
 	<pre>sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</pre>
+	配置的时候,请检查实际运行环境.
 
 	<li>配置dnsmasq </li>
 	如果需要配置DHCP功能,请使用dnsmasq.<br>
