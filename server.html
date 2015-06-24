@@ -39,13 +39,13 @@
 	<h3>配置系统</h3>
 	<ul>
 	<li>修改内核,让操作系统支持转发</li>
-	修改 /etc/sysctrl.conf ,将ipv4的转发打开.<br>
+	修改 /etc/sysctl.conf ,将ipv4的转发打开.<br>
 
 	<pre>net.ipv4.ip_forward=1</pre>
 
 	使用下面的指令,使配置生效<br>
 
-	<pre>sudo sysctrl -p /etc/sysctrl.conf</pre>
+	<pre>sudo sysctl -p /etc/sysctl.conf</pre>
 
 	<li>配置NAT</li>
 	配置的时候,请检查实际运行环境.<br>
