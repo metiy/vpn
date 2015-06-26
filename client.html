@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>VPN by metiy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">config client</h1>
+    </section>
+
+    <section class="main-content">
+
+	windows下客户端的配置文件是 tzmvpn.ini <br>
+	每次修改配置文件后,请重新运行客户端.<br>
+
+
+	<h3>可以配置的项目</h3>
+	<ul>
+	<li>ServerAddress</li>
+	服务器的地址,可以使用域名或者IP
+	<li>ServerPort</li>
+	服务的端口号码
+	<li>username</li>
+	用户名(目前,服务器暂时不支持用户名校验)
+	<li>Password</li>
+	加密解密的密钥,是一个字符串.
+	<li>Verbose</li>
+	输出信息类型的开关
+	<li>ipv4only</li>
+	是否只转发IPV4的数据,默认为打开.
+	<li>useremotegateway</li>
+	是否使用远程网关,默认关闭,如果是架设全局VPN,请打开.
+	</ul>
+
+	<footer class="site-footer">
+    </footer>
+    </section>
+
+  </body>
+</html>
+
